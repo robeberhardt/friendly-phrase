@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/robeberhardt/friendly-phrase/issues"
   },
-  "homepage": "https://github.com/robeberhardt/friendly-phrase#readme"
+  "homepage": "https://github.com/robeberhardt/friendly-phrase#readme",
+  "devDependencies": {
+    "typescript": "^3.1.1"
+  }
 }
