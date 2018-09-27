@@ -1,11 +1,19 @@
 {
   "name": "friendly-phrase",
   "version": "1.0.0",
-  "description": "",
+  "description": "Generates voice- and family-friendly passphrases",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Rob Eberhardt <rob.eberhardt@gmail.com> (http://twitter.com/robeberhardt)",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robeberhardt/friendly-phrase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robeberhardt/friendly-phrase/issues"
+  },
+  "homepage": "https://github.com/robeberhardt/friendly-phrase#readme"
 }
