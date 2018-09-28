@@ -4,7 +4,9 @@
   "description": "Generates voice- and family-friendly passphrases",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
   },
   "author": "Rob Eberhardt <rob.eberhardt@gmail.com> (http://twitter.com/robeberhardt)",
   "license": "ISC",
@@ -17,6 +19,9 @@
   },
   "homepage": "https://github.com/robeberhardt/friendly-phrase#readme",
   "devDependencies": {
+    "prettier": "^1.14.3",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.1"
   }
 }
