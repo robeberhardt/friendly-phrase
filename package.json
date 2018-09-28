@@ -4,7 +4,7 @@
   "description": "Generates voice- and family-friendly passphrases",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "author": "Rob Eberhardt <rob.eberhardt@gmail.com> (http://twitter.com/robeberhardt)",
   "license": "ISC",
