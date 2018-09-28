@@ -30,10 +30,18 @@ export class FriendlyPhrase {
   /**
    * @Method: Returns a three-word passphrase with a separator string
    * between each word - order is adjective-color-animal
+   * @param {string} [sep = ' '] - The separator charatcter
+   * @param {string} [prevent = ''] - a matching string used
+   * to prevent (very unlikely) duplicate results
    * @Return {string}
    */
-  static phrase(sep: string = ' '): string {
-    return `${this.adjective()}${sep}${this.color()}${sep}${this.animal()}`;
+  static phrase(sep: string = ' ', prevent: string = '') {
+    const result = `${this.adjective()}${sep}${this.color()}${sep}${this.animal()}`;
+    if (result !== prevent) {
+      return result;
+    } else {
+      this.phrase(sep, prevent);
+    }
   }
 
   private static random(max: number): number {
