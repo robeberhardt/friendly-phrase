@@ -1,1 +1,1 @@
-export { FriendlyPhrase } from './FriendlyPhrase';
+export { phrase } from './FriendlyPhrase';

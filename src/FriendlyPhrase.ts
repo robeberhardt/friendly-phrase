@@ -2,49 +2,51 @@ import { adjectives } from './words/adjectives';
 import { animals } from './words/animals';
 import { colors } from './words/colors';
 
-export class FriendlyPhrase {
-  /**
-   * @Method: Returns a random adjective from the words list.
-   * @Return {string}
-   */
-  static adjective(): string {
-    return adjectives[this.random(adjectives.length)];
-  }
-
-  /**
-   * @Method: Returns a random color from the words list.
-   * @Return {string}
-   */
-  static color(): string {
-    return colors[this.random(colors.length)];
-  }
-
-  /**
-   * @Method: Returns a random animal from the words list.
-   * @Return {string}
-   */
-  static animal(): string {
-    return animals[this.random(animals.length)];
-  }
-
-  /**
-   * @Method: Returns a three-word passphrase with a separator string
-   * between each word - order is adjective-color-animal
-   * @param {string} [sep = ' '] - The separator charatcter
-   * @param {string} [prevent = ''] - a matching string used
-   * to prevent (very unlikely) duplicate results
-   * @Return {string}
-   */
-  static phrase(sep: string = ' ', prevent: string = '') {
-    const result = `${this.adjective()}${sep}${this.color()}${sep}${this.animal()}`;
-    if (result !== prevent) {
-      return result;
-    } else {
-      this.phrase(sep, prevent);
-    }
-  }
-
-  private static random(max: number): number {
-    return Math.floor(Math.random() * max);
+/**
+ * @Method: Returns a three-word passphrase with a separator string
+ * between each word - order is adjective-color-animal
+ * @param {string} [sep = ' '] - The separator charatcter
+ * @param {string} [prevent = ''] - a matching string used
+ * to prevent (very unlikely) duplicate results
+ * @Return {string}
+ */
+export function phrase(sep: string = ' ', prevent: string = '') {
+  const result = `${adjective()}${sep}${color()}${sep}${animal()}`;
+  if (result !== prevent) {
+    return result;
+  } else {
+    phrase(sep, prevent);
   }
 }
+
+/**
+ * @Method: Returns a random adjective from the words list.
+ * @Return {string}
+ */
+const adjective = (): string => {
+  return adjectives[random(adjectives.length)];
+};
+
+/**
+ * @Method: Returns a random color from the words list.
+ * @Return {string}
+ */
+const color = (): string => {
+  return colors[random(colors.length)];
+};
+
+/**
+ * @Method: Returns a random animal from the words list.
+ * @Return {string}
+ */
+const animal = (): string => {
+  return animals[random(animals.length)];
+};
+
+/**
+ * @Method: Returns a random number between 0 and max
+ * @Return {number}
+ */
+const random = (max: number = 1): number => {
+  return Math.floor(Math.random() * max);
+};
