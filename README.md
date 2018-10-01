@@ -1,5 +1,8 @@
 ## Friendly Phrase
 ---
+[![Build Status](https://img.shields.io/travis/robeberhardt/friendly-phrase/master.svg)](https://travis-ci.org/robeberhardt/friendly-phrase)
+[![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/react.svg)](https://github.com/robeberhardt/friendly-phrase)
+
 
 This module generates three-word English phrases intended for use in voice-based authentication and similar use cases. The phrases are built from hand-crafted word lists containing adjectives, colors and animal names, and are designed to be inoffensive and easy to pronounce.
 
