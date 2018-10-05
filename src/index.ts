@@ -1,1 +1,1 @@
-export { phrase } from './FriendlyPhrase';
+export { phrase, setSeed, resetSeed } from './FriendlyPhrase';

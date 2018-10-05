@@ -1,3 +1,5 @@
+import seed from 'seed-random';
+
 import { adjectives } from './words/adjectives';
 import { animals } from './words/animals';
 import { colors } from './words/colors';
@@ -8,20 +10,29 @@ import { colors } from './words/colors';
  * @param {string} [sep = ' '] - The separator charatcter
  * @param {string} [prevent = ''] - a matching string used
  * to prevent (very unlikely) duplicate results
- * @Return {string}
+ * @returns {string}
  */
-export function phrase(sep: string = ' ', prevent: string = '') {
+export function phrase(sep: string = ' ', prevent: string = ''): string {
   const result = `${adjective()}${sep}${color()}${sep}${animal()}`;
   if (result !== prevent) {
-    return result;
+    return String(result);
   } else {
-    phrase(sep, prevent);
+    return phrase(sep, prevent);
   }
+  throw new Error('shut up, compiler');
+}
+
+export function setSeed(seedString: string) {
+  seed(seedString, { global: true });
+}
+
+export function resetSeed() {
+  seed.resetGlobal();
 }
 
 /**
  * @Method: Returns a random adjective from the words list.
- * @Return {string}
+ * @returns {string}
  */
 const adjective = (): string => {
   return adjectives[random(adjectives.length)];
@@ -29,7 +40,7 @@ const adjective = (): string => {
 
 /**
  * @Method: Returns a random color from the words list.
- * @Return {string}
+ * @returns {string}
  */
 const color = (): string => {
   return colors[random(colors.length)];
@@ -37,7 +48,7 @@ const color = (): string => {
 
 /**
  * @Method: Returns a random animal from the words list.
- * @Return {string}
+ * @returns {string}
  */
 const animal = (): string => {
   return animals[random(animals.length)];
@@ -45,7 +56,7 @@ const animal = (): string => {
 
 /**
  * @Method: Returns a random number between 0 and max
- * @Return {number}
+ * @returns {number}
  */
 const random = (max: number = 1): number => {
   return Math.floor(Math.random() * max);
