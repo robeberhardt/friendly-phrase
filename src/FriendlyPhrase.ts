@@ -1,3 +1,5 @@
+import seed from 'seed-random';
+
 import { adjectives } from './words/adjectives';
 import { animals } from './words/animals';
 import { colors } from './words/colors';
@@ -10,13 +12,21 @@ import { colors } from './words/colors';
  * to prevent (very unlikely) duplicate results
  * @returns {string}
  */
-export function phrase(sep: string = ' ', prevent: string = '') {
+export function phrase(sep: string = ' ', prevent: string = ''): string {
   const result = `${adjective()}${sep}${color()}${sep}${animal()}`;
   if (result !== prevent) {
-    return result;
+    return String(result);
   } else {
     phrase(sep, prevent);
   }
+}
+
+export function setSeed(seedString: string) {
+  seed(seedString, { global: true });
+}
+
+export function resetSeed() {
+  seed.resetGlobal();
 }
 
 /**
