@@ -8,7 +8,7 @@ import { colors } from './words/colors';
  * @param {string} [sep = ' '] - The separator charatcter
  * @param {string} [prevent = ''] - a matching string used
  * to prevent (very unlikely) duplicate results
- * @Return {string}
+ * @returns {string}
  */
 export function phrase(sep: string = ' ', prevent: string = '') {
   const result = `${adjective()}${sep}${color()}${sep}${animal()}`;
@@ -21,7 +21,7 @@ export function phrase(sep: string = ' ', prevent: string = '') {
 
 /**
  * @Method: Returns a random adjective from the words list.
- * @Return {string}
+ * @returns {string}
  */
 const adjective = (): string => {
   return adjectives[random(adjectives.length)];
@@ -29,7 +29,7 @@ const adjective = (): string => {
 
 /**
  * @Method: Returns a random color from the words list.
- * @Return {string}
+ * @returns {string}
  */
 const color = (): string => {
   return colors[random(colors.length)];
@@ -37,7 +37,7 @@ const color = (): string => {
 
 /**
  * @Method: Returns a random animal from the words list.
- * @Return {string}
+ * @returns {string}
  */
 const animal = (): string => {
   return animals[random(animals.length)];
@@ -45,7 +45,7 @@ const animal = (): string => {
 
 /**
  * @Method: Returns a random number between 0 and max
- * @Return {number}
+ * @returns {number}
  */
 const random = (max: number = 1): number => {
   return Math.floor(Math.random() * max);
