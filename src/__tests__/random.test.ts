@@ -1,5 +1,3 @@
-/* tslint:disable:no-console */
-
 import { phrase, resetSeed, setSeed } from '../../lib';
 
 const seedString = 'blarg';
@@ -45,20 +43,15 @@ test('test the duplicate prevention functionality', () => {
   const phrase1 = phrase();
   const phrase2 = phrase();
 
-  console.log('phrase1: ', phrase1, 'phrase2: ', phrase2);
-
   // reset the seed, and generate a phrase
   resetSeed();
   const throwawayPhrase = phrase();
-  console.log('throwaway phrase: ', throwawayPhrase);
 
   // set the seed to the same value as the first run
   // and generate a third phrase, passing the value
   // of the first phrase as the 'prevent' parameter
   setSeed(seedString);
   const preventPhrase = phrase(' ', phrase1);
-
-  console.log('preventPhrase: ', preventPhrase);
 
   // preventPhrase should not equal phrase1,
   // and should equal phrase 2
