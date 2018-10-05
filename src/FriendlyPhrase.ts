@@ -19,6 +19,7 @@ export function phrase(sep: string = ' ', prevent: string = ''): string {
   } else {
     phrase(sep, prevent);
   }
+  throw new Error('shut up, compiler');
 }
 
 export function setSeed(seedString: string) {
