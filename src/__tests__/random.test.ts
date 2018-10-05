@@ -2,11 +2,12 @@
 
 import { phrase, resetSeed, setSeed } from '../../lib';
 
+const seedString = 'blarg';
+
 test('Seeded random number generation', () => {
   const run1: string[] = [];
   const run2: string[] = [];
   const run3: string[] = [];
-  const seedString = 'blarg';
 
   // set seed (overrides Math.random()) and generate five phrases
   setSeed(seedString);
@@ -36,4 +37,31 @@ test('Seeded random number generation', () => {
 
   // first should not match second
   expect(run1).not.toEqual(run2);
+});
+
+test('test the duplicate prevention functionality', () => {
+  // set the seed, and generate two phrases
+  setSeed(seedString);
+  const phrase1 = phrase();
+  const phrase2 = phrase();
+
+  console.log('phrase1: ', phrase1, 'phrase2: ', phrase2);
+
+  // reset the seed, and generate a phrase
+  resetSeed();
+  const throwawayPhrase = phrase();
+  console.log('throwaway phrase: ', throwawayPhrase);
+
+  // set the seed to the same value as the first run
+  // and generate a third phrase, passing the value
+  // of the first phrase as the 'prevent' parameter
+  setSeed(seedString);
+  const preventPhrase = phrase(' ', phrase1);
+
+  console.log('preventPhrase: ', preventPhrase);
+
+  // preventPhrase should not equal phrase1,
+  // and should equal phrase 2
+  expect(preventPhrase).not.toEqual(phrase1);
+  expect(preventPhrase).toEqual(phrase2);
 });
