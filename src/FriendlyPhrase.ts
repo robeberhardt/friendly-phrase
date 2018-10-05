@@ -17,7 +17,7 @@ export function phrase(sep: string = ' ', prevent: string = ''): string {
   if (result !== prevent) {
     return String(result);
   } else {
-    phrase(sep, prevent);
+    return phrase(sep, prevent);
   }
   throw new Error('shut up, compiler');
 }
