@@ -12,8 +12,11 @@ import { colors } from './words/colors';
  * to prevent (very unlikely) duplicate results
  * @returns {string}
  */
-export function phrase(sep: string = ' ', prevent: string = ''): string {
-  const result = `${adjective()}${sep}${color()}${sep}${animal()}`;
+export function phrase(sep: string = ' ', prevent: string = '', short: boolean = false): string {
+  let result = `${color()}${sep}${animal()}`;
+  if (!short) {
+    result = `${adjective()}${sep}${result}`;
+  }
   if (result !== prevent) {
     return String(result);
   } else {
