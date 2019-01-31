@@ -1,6 +1,6 @@
 {
   "name": "friendly-phrase",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Generates voice-friendly, unoffensive passphrases",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
