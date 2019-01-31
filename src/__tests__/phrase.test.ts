@@ -13,3 +13,10 @@ test('Test Phrase Generation - hyphen delimited', () => {
   expect(friendly).toBeDefined();
   expect(friendly).toMatch(hyphenRegex);
 });
+
+const shortRegex = /([A-Z])\w+ ([A-Z])\w+/g;
+test('Short Phrase Generation - space delimited', () => {
+  const shortFriendly = phrase(' ', '', true);
+  expect(shortFriendly).toBeDefined();
+  expect(shortFriendly).toMatch(shortRegex);
+});
